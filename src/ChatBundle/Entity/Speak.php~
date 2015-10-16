@@ -1,0 +1,41 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: niko
+ * Date: 10/10/15
+ * Time: 19:26
+ */
+
+namespace ChatBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+* @ORM\Entity
+* @ORM\Table(name="Speak")
+*/
+
+class Speak
+{
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Users", inversedBy="Speak")
+     * @ORM\JoinColumn(name="users_id", referencedColumnName="id")
+     */
+
+    private $users;
+    
+    /**
+     * @ORM\Column(type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+
+    private $id;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+
+    private $text;
+}
